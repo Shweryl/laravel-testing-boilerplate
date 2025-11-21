@@ -1,5 +1,6 @@
 <?php
 
+use App\Domains\Auth\Http\Controllers\Backend\Category\CategoryController;
 use App\Domains\Auth\Http\Controllers\Backend\Role\RoleController;
 use App\Domains\Auth\Http\Controllers\Backend\User\DeactivatedUserController;
 use App\Domains\Auth\Http\Controllers\Backend\User\DeletedUserController;
@@ -141,5 +142,12 @@ Route::group([
             Route::patch('/', [RoleController::class, 'update'])->name('update');
             Route::delete('/', [RoleController::class, 'destroy'])->name('destroy');
         });
+    });
+
+    Route::group([
+        'prefix' => 'category',
+        'as' => 'category.',
+    ], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
     });
 });
