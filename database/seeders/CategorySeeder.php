@@ -16,16 +16,19 @@ class CategorySeeder extends Seeder
     {
         Category::create([
             'name' => 'Electronics',
+            'description' => 'Devices and gadgets',
             'slug' => 'electronics',
         ]);
 
         Category::create([
             'name' => 'Books',
+            'description' => 'Various kinds of books',
             'slug' => 'books',
         ]);
 
         Category::create([
             'name' => 'Clothing',
+            'description' => 'Apparel and accessories',
             'slug' => 'clothing',
         ]);
     }

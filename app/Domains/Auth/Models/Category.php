@@ -1,7 +1,9 @@
 <?php
 namespace App\Domains\Auth\Models;
 
-class Category extends \Illuminate\Database\Eloquent\Model{
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model{
     protected $fillable = [
         'name',
         'description',

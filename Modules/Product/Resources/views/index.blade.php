@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
 @endpush
 
-@section('title', __('Category Management'))
+@section('title', __('Product Management'))
 
 
 @section('content')
@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <h4 class="card-title mb-0">
-                        Category Management
+                        Product Management
                     </h4>
                 </div><!--col-->
 
@@ -30,8 +30,10 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
                                     <th>Updated At</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                         </table>
@@ -56,7 +58,7 @@
             $('#category-table').DataTable({
                 serverSide: true,
                 ajax: {
-                    url: '{!! route('admin.auth.category.table') !!}',
+                    url: '{!! route('product.table') !!}',
                     type: 'get',
                     error: function(xhr, err) {
                         if (err === 'parsererror')
@@ -77,12 +79,26 @@
                         name: 'slug'
                     },
                     {
-                        data: 'description',
-                        name: 'description'
+                        data: 'price',
+                        name: 'price'
+                    },
+                    {
+                        data: 'stock',
+                        name: 'stock'
+                    },
+                    {
+                        data: 'sku',
+                        name: 'sku'
                     },
                     {
                         data: 'updated_at',
                         name: 'updated_at'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
                     },
 
                 ],

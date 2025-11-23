@@ -74,6 +74,10 @@
             <x-utils.link class="c-sidebar-nav-link" :href="route('admin.auth.category.index')" :active="activeClass(Route::is('admin.auth.category.*'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-speedometer" :text="__('Category')" />
         </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('product.index')" :active="activeClass(Route::is('product.*'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-speedometer" :text="__('Product')" />
+        </li>
     </ul>
 
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"

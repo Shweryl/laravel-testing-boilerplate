@@ -1,6 +1,7 @@
 <?php
 
 use App\Domains\Auth\Http\Controllers\Backend\Category\CategoryController;
+use App\Domains\Auth\Http\Controllers\Backend\Category\CategoryTableController;
 use App\Domains\Auth\Http\Controllers\Backend\Role\RoleController;
 use App\Domains\Auth\Http\Controllers\Backend\User\DeactivatedUserController;
 use App\Domains\Auth\Http\Controllers\Backend\User\DeletedUserController;
@@ -9,6 +10,8 @@ use App\Domains\Auth\Http\Controllers\Backend\User\UserPasswordController;
 use App\Domains\Auth\Http\Controllers\Backend\User\UserSessionController;
 use App\Domains\Auth\Models\Role;
 use App\Domains\Auth\Models\User;
+use Modules\Product\Http\Controllers\ProductController;
+use Modules\Product\Http\Controllers\ProductTableController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.auth'.
@@ -149,5 +152,8 @@ Route::group([
         'as' => 'category.',
     ], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/category-table', CategoryTableController::class)->name('table');
     });
+
+    
 });
